@@ -28,6 +28,6 @@ setup(
     author='Karachev Denis',
     author_email='welcomedenk@gmail.com',
     license='MIT',
-    install_requires=['bezier'],
+    install_requires=['bezier', 'opencv-python>=4.1.1'],
     packages=find_packages(),
 )
