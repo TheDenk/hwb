@@ -1,2 +1,5 @@
+opencv-python>=4.1.1
+opencv-python-headless>=4.1.1
 pytest>=3.7.0
 pytest-cov==2.4.0
+bezier>=2020.5.19
