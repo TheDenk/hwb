@@ -2,7 +2,7 @@
 [![codecov](https://codecov.io/gh/TheDenk/hwb/branch/main/graph/badge.svg?token=3r6EhqzwXz)](https://codecov.io/gh/TheDenk/hwb)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 [![Generic badge](https://img.shields.io/badge/python-3.6|3.7|3.8-blue.svg)](https://shields.io/)
-[![Downloads](https://pepy.tech/badge/hwb)](https://pepy.tech/project/hwb)
+[![Downloads](https://static.pepy.tech/badge/hwb)](https://pepy.tech/project/hwb)
 
 # Hand Written Blots Augmentation
 This repository contains augmentation from our <a href="https://arxiv.org/pdf/2108.11667v1.pdf">paper</a>.  
