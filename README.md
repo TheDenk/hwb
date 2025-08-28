@@ -66,6 +66,8 @@ blot_params = {
     'transparency': (0.05, 0.4), # Blots transparency. Can be single float value (0, 1).
 
     'count': (1, 5), # Min Max Blots count.
+
+    'thickness': (1, 5), # Min Max Blots thickness.
 }
 ```  
 ### Example with configs  

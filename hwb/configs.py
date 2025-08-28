@@ -12,4 +12,5 @@ blot_params = {
     'intensivity': (0.5, 0.9),
     'transparency': (0.05, 0.4),
     'count': (1, 5),
+    'thickness': (1, 5),
 }

@@ -96,6 +96,8 @@ class HandWrittenBlot:
         self.min_intens, self.max_intens = unpack_mm_params(self.params['intensivity'])
         self.min_transp, self.max_transp = unpack_mm_params(self.params['transparency'])
         self.min_count, self.max_count = unpack_mm_params(self.params['count'])
+        self.min_thick, self.max_thick = unpack_mm_params(self.params['thickness'])
+
 
     def generate_points(self, mask_x: int, mask_y: int,
                         mask_w: int, mask_h: int, intensivity: float, incline: int):
@@ -156,7 +158,7 @@ class HandWrittenBlot:
 
         return points
 
-    def draw_bezier_curve(self, image: np.array, points: list):
+    def draw_bezier_curve(self, image: np.array, points: list, thickness: int):
         """
         Description:
         Method for drawing bezier line, using generated points.
@@ -187,7 +189,7 @@ class HandWrittenBlot:
 
             x2, y2 = np.uint16(x)[0], np.uint16(y)[0]
 
-            img = self.cv2.line(img, (x1, y1), (x2, y2), (0, 0, 0), np.random.randint(1, 5))
+            img = self.cv2.line(img, (x1, y1), (x2, y2), (0, 0, 0), thickness)
             x1, y1 = x2, y2
 
         return img
@@ -219,7 +221,7 @@ class HandWrittenBlot:
                 )
                 if not points:
                     continue
-                fg_img = self.draw_bezier_curve(fg_img, points)
+                fg_img = self.draw_bezier_curve(fg_img, points, config['thickness'])
 
             bg_img = self.cv2.addWeighted(bg_img, config['transparency'], fg_img, 1 - config['transparency'], 0)
 
@@ -253,6 +255,7 @@ class HandWrittenBlot:
             incline = generate_parameter(self.min_incline, self.max_incline, 'incline')
             intensivity = generate_parameter(self.min_intens, self.max_intens, 'intensivity')
             transp = generate_parameter(self.min_transp, self.max_transp, 'transparency')
+            thick = generate_parameter(self.min_thick, self.max_thick, 'thickness')
 
             configs.append({
                 'x': x1,
@@ -263,6 +266,7 @@ class HandWrittenBlot:
                 'repeat': int(intensivity * 5),
                 'transparency': transp,
                 'incline': incline,
+                'thickness': thick,
             })
 
         return configs
